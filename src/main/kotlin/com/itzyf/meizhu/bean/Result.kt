@@ -10,6 +10,4 @@ data class Result<T>(var code: Int) {
 
     var data: T? = null
     var msg: String? = null
-    val isSuccess: Boolean
-        get() = code == 0
 }
