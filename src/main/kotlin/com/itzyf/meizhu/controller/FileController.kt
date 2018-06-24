@@ -32,7 +32,7 @@ class IndexController {
 
     @RequestMapping(value = ["/fileUpload"], method = [(RequestMethod.POST)])
     fun uploadFile(@RequestParam("file") file: MultipartFile): Result<String> {
-        val result = Result<String>(0)
+        val result = Result<String>()
         if (file.isEmpty) {
             result.msg = "上传的文件为空"
             result.code = 102
@@ -55,7 +55,7 @@ class IndexController {
             val path = saveBit(file.inputStream, home, suffix)
             result.msg = "上传成功"
             result.data = appProps?.imageUrl + path
-            result.code = 0
+            result.code = 200
         } catch (e: IOException) {
             e.printStackTrace()
             result.msg = "上传失败"
