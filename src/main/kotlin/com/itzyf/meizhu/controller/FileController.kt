@@ -35,7 +35,7 @@ class IndexController {
         val result = Result<String>()
         if (file.isEmpty) {
             result.msg = "上传的文件为空"
-            result.code = 102
+            result.code = 9999
             return result
         }
         LOGGER.info("上传文件:" + file.originalFilename!!)
@@ -59,7 +59,7 @@ class IndexController {
         } catch (e: IOException) {
             e.printStackTrace()
             result.msg = "上传失败"
-            result.code = 102
+            result.code = 9999
         }
 
         return result
